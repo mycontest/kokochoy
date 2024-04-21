@@ -1,6 +1,17 @@
 {
   "name": "kokosh",
-  "version": "3.0.2",
+  "keywords": [
+    "git",
+    "backups"
+  ],
+  "authors": [
+    {
+      "name": "Utkir Khujaev",
+      "email": "balkibumen@gmail.com",
+      "url": "https://mycontest.dev"
+    }
+  ],
+  "version": "4.0.0",
   "description": "Run script1 or script2 globally",
   "bin": {
     "kokosh": "./index.js"

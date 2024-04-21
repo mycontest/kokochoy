@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Load variables from .env.* file
-source .env.$NODE_ENV
+current_dir=$(pwd)
+source  $current_dir + "/.env.prod"
 
 # Backup directory
 BACKUP_DIR="/root/backups/"

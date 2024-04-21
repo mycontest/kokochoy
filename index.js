@@ -2,6 +2,8 @@
 
 const { exec } = require('child_process');
 
+console.log("The current directory is:", process.cwd());
+
 // Get the command-line arguments
 const [, , script] = process.argv;
 
@@ -12,7 +14,6 @@ const scripts = {
     backups: './shell/backups.sh',
 };
 
-
 // Execute the corresponding shell script
 const runScript = (script) => {
     const scriptPath = scripts[script];
@@ -21,7 +22,7 @@ const runScript = (script) => {
         process.exit(1);
     }
 
-    exec(`bash ${scriptPath}`, (error, stdout, stderr) => {
+    exec(`sh ${scriptPath}`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${stderr}`);
             process.exit(1);
