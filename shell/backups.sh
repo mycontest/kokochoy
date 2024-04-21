@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load variables from .env.* file 
-. "$$1/.env.$NODE_ENV"
+. "$1/.env.$NODE_ENV"
 
 # Backup directory
 BACKUP_DIR="/root/backups/"
