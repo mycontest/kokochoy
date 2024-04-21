@@ -8,8 +8,8 @@ git pull
 # Install npm dependencies
 npm install
 
-# Reload jobs
-# node jobs/reload.js
+# Build again 
+npm run build
 
 # Restart the production contest service using pm2
 pm2 restart $PM2_ID 
