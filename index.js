@@ -12,6 +12,8 @@ const scripts = {
     backups: './shell/pushing.sh'
 };
 
+
+
 // Execute the corresponding shell script
 const runScript = (script) => {
     const scriptPath = scripts[script];
