@@ -4,8 +4,6 @@ const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-console.log("The current directory is:", process.cwd());
-
 // Get the command-line arguments
 const [, , script] = process.argv;
 const version = JSON.parse(fs.readFileSync(path.join(__dirname, "./package.json"))).version
