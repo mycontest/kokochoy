@@ -3,7 +3,7 @@
 Install
 
 ```bash
-npm install -g kokosh
+npm install -g kokosh@latest
 ```
 
 command

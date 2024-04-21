@@ -9,7 +9,7 @@ const [, , script] = process.argv;
 const scripts = {
     pull: './shell/pulling.sh',
     push: './shell/pushing.sh',
-    backups: './shell/backups.sh'
+    backups: './shell/backups.sh',
 };
 
 
@@ -17,7 +17,7 @@ const scripts = {
 const runScript = (script) => {
     const scriptPath = scripts[script];
     if (!scriptPath) {
-        console.error(`Invalid script: ${script}`);
+        console.error(`Invalid script: ${script}!`);
         process.exit(1);
     }
 

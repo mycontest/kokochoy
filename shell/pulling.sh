@@ -1,5 +1,6 @@
 # Load variables from .env.* file
-source .env.$NODE_ENV
+
+source ".env.prod"
 
 # Pull latest changes from Git repository
 git pull
