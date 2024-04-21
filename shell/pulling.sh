@@ -1,8 +1,6 @@
 # Load variables from .env.* file
 
-current_dir=$(pwd)
-echo "Current working directory: $currentDirectory"
-source  $current_dir + "/.env.prod"
+. "$1/.env.prod"
 
 # Pull latest changes from Git repository
 git pull
