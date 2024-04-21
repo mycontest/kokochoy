@@ -1,4 +1,5 @@
-export $(cat .env | grep -v ^# | xargs)
+# Load variables from .env.* file
+source .env.$NODE_ENV
 
 # Pull latest changes from Git repository
 git pull

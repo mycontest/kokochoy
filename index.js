@@ -9,9 +9,8 @@ const [, , script] = process.argv;
 const scripts = {
     pull: './shell/pulling.sh',
     push: './shell/pushing.sh',
-    backups: './shell/pushing.sh'
+    backups: './shell/backups.sh'
 };
-
 
 
 // Execute the corresponding shell script

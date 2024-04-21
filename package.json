@@ -1,0 +1,9 @@
+{
+  "name": "kokosh",
+  "version": "2.2.0",
+  "description": "Run script1 or script2 globally",
+  "bin": {
+    "kokosh": "./index.js"
+  },
+  "preferGlobal": true
+}
