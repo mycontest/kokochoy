@@ -1,7 +1,20 @@
 #!/bin/bash
+ 
+# Define colors
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-# Load variables from .env.* file 
-. "$1/.env.$NODE_ENV"
+# Load variables from .env.* file
+ENV_FILE="$1/.env.$NODE_ENV"
+if [ -f "$ENV_FILE" ]; then
+    . "$ENV_FILE"
+elif [ -f "$1/.env" ]; then
+    printf "${RED}Warning: ${NC}$ENV_FILE not found, falling back to .env\n"
+    . "$1/.env"
+else
+    printf "${RED}Error: ${NC}.env file not found\n" 
+    exit 1
+fi
 
 # Backup directory
 BACKUP_DIR="/root/backups/"

@@ -1,17 +1,17 @@
-const { execSync, spawn } = require('child_process');
+const { spawn } = require('child_process');
 const { exit } = require('./others');
 const path = require('path');
-const fs = require('fs');
 
 let scripts = {
-    pull: { type: "shell", command: path.join(__dirname, '../shell/pull.sh') },
+    pull: { type: "shell", path: path.join(__dirname, '../shell/pull.sh') },
     push: { type: "shell", path: path.join(__dirname, '../shell/push.sh') },
     backups: { type: "shell", path: path.join(__dirname, '../shell/backups.sh') },
     version: { type: "shell", path: path.join(__dirname, '../shell/version.sh') },
-    exit: { type: "function", func: exit }
+    help: { type: "shell", path: path.join(__dirname, '../shell/help.sh') },
+    exit: { type: "function", func: exit },
 }
 
-const run = async (name, params = []) => {
+let run = async (name, params = []) => {
     try {
         let command = scripts[name];
         if (!command) throw new Error(`Invalid script: ${name}!`);
@@ -22,20 +22,20 @@ const run = async (name, params = []) => {
 
     } catch (err) {
         console.error(`Message: ${err.message}, ErroCode: 0001`);
-        process.exit(1)
+        process.exit(1);
     }
 }
 
-const shell = async (path, params = []) => {
+let shell = async (path, params = []) => {
     try {
-        const child = spawn('sh', [path, ...params]);
+        let child = spawn('sh', [path, ...params]);
 
         child.stdout.on('data', (data) => {
             console.log(data.toString());
         });
 
         child.stderr.on('data', (data) => {
-            console.error(`Error: ${data.toString()}`);
+            console.error(`${data.toString()}`);
         });
 
         child.on('close', (code) => {
@@ -43,7 +43,7 @@ const shell = async (path, params = []) => {
         });
     } catch (error) {
         console.error(`Message: ${error.message}, ErroCode: 0002`);
-        process.exit(1)
+        process.exit(1);
     }
 }
 
