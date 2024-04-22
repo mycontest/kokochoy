@@ -9,10 +9,11 @@ npm install -g kokosh@latest
 command
 
 ```bash
+kokosh -v # print version
+kokosh -h # print help text
 kokosh push  # git add , git commit auto,  git push
 kokosh pull  # git pull, npm i, pm2 restart
 kokosh backups # backups all database and send telegram
-kokosh version # print version
 ```
 
 **_is required You need add .env_**
