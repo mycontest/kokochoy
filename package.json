@@ -12,9 +12,12 @@
     }
   ],
   "version": "4.2.0",
-  "description": "Run script1 or script2 globally",
+  "description": "My own library!",
   "bin": {
-    "kokosh": "./index.js"
+    "kokosh": "./main.js"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "dependencies": {
+    "prompts": "^2.4.0"
+  }
 }

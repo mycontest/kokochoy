@@ -12,4 +12,4 @@ npm install
 npm run build
 
 # Restart the production contest service using pm2
-pm2 restart $PM2_ID 
+pm2 restart $PM2_ID
