@@ -1,0 +1,7 @@
+echo "kokosh - A utility tool for common tasks"
+echo "Usage:"
+echo "  kokosh push       : Push changes to the remote repository"
+echo "  kokosh pull       : Pull changes, install dependencies, and restart services"
+echo "  kokosh backups    : Perform backups of databases and send notifications"
+echo "  kokosh version    : Print version information"
+echo "  kokosh help       : Print this help message"
