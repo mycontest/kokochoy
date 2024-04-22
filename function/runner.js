@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { execSync, spawn } = require('child_process');
 const { exit } = require('./others');
 const path = require('path');
 const fs = require('fs');
@@ -28,8 +28,19 @@ const run = async (name, params = []) => {
 
 const shell = async (path, params = []) => {
     try {
-        let result = execSync(`sh ${path} ${params.join(" ")}`);
-        console.log(result.toString());
+        const child = spawn('sh', [path, ...params]);
+
+        child.stdout.on('data', (data) => {
+            console.log(data.toString());
+        });
+
+        child.stderr.on('data', (data) => {
+            console.error(`Error: ${data.toString()}`);
+        });
+
+        child.on('close', (code) => {
+            console.log(`child process exited with code ${code}`);
+        });
     } catch (error) {
         console.error(`Message: ${error.message}, ErroCode: 0002`);
         process.exit(1)
